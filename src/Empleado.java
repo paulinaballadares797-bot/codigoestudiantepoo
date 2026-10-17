@@ -105,14 +105,16 @@ public class Empleado {
      * @return true si la edad es valida y fue asignada; false en caso contrario
      */
     public boolean setEdad(int nuevaEdad) {
-        // ====================================================================
-        // ESCRIBE TU CODIGO AQUI:
-        // PISTA: Evalua con un if (nuevaEdad >= 18 && nuevaEdad <= 70)
-        // ====================================================================
-
-        // [PLANTILLA TEMPORAL]: Reemplazar con tu implementacion completa
-        this.edad = nuevaEdad; 
-        return true;
+        if (nuevaEdad >= 18 && nuevaEdad <= 70) {
+            this.edad = nuevaEdad;
+            return true;
+        } else {
+            System.out.println("[ERROR INVARIANTE] Edad invalida: " + nuevaEdad + ". Debe estar entre 18 y 70 anios.");
+            if (this.edad == 0) {
+                this.edad = 18; // valor por defecto seguro
+            }
+            return false; 
+        }
     }
 
     /**
@@ -129,14 +131,16 @@ public class Empleado {
      * @return true si el salario cumple con la invariante; false en caso contrario
      */
     public boolean setSueldo(double nuevoSueldo) {
-        // ====================================================================
-        // ESCRIBE TU CODIGO AQUI:
-        // PISTA: Evalua con un if (nuevoSueldo >= SALARIO_BASICO_ECUADOR)
-        // ====================================================================
-
-        // [PLANTILLA TEMPORAL]: Reemplazar con tu implementacion completa
-        this.sueldo = nuevoSueldo;
-        return true;
+        if (nuevoSueldo >= SALARIO_BASICO_ECUADOR) {
+            this.sueldo = nuevoSueldo;
+            return true;
+        } else {
+            System.out.println("[ERROR INVARIANTE] Sueldo invalido: $" + nuevoSueldo + ". No puede ser menor al SBU ($" + SALARIO_BASICO_ECUADOR + ").");
+            if (this.sueldo == 0) {
+                this.sueldo = SALARIO_BASICO_ECUADOR; // valor por defecto seguro
+            }
+            return false;
+        }
     }
 
     // ------------------------------------------------------------------------
